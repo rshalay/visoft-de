@@ -8,7 +8,9 @@ pipeline {
     stage('install playwright') {
       steps {
         script {
-                    sh 'chown -R 122:124 "/.npm"'
+                    sh 'ls -la /usr/local/lib/node_modules'
+                    sh 'ls -la /usr/local/lib/node_modules'
+                    sh 'sudo chown -R $USER /usr/local/lib/node_modules'
                     // Install dependencies
                     sh 'npm i -D @playwright/test'
                     sh 'npx playwright install'
