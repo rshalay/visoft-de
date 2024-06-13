@@ -8,10 +8,7 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
-          npm init -y
-          npm insta
-
-
+          npm i -D @playwright/test
           npx playwright install
         '''
       }
@@ -28,12 +25,7 @@ pipeline {
           npx playwright test
         '''
       }
-      post {
-        success {
-          archiveArtifacts(artifacts: 'homepage-*.png', followSymlinks: false)
-          sh 'rm -rf *.png'
-        }
-      }
+    
     }
   }
 }
