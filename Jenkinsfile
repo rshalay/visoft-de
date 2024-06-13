@@ -13,6 +13,7 @@ pipeline {
                     // Install dependencies
                     sh 'npm i -D @playwright/test'
                     sh 'npx playwright install'
+                }
     }
     stage('help') {
       steps {
