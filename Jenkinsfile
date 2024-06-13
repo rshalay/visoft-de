@@ -1,11 +1,23 @@
 pipeline {
-   agent { docker { image 'mcr.microsoft.com/playwright:v1.44.1-jammy' } }
-   stages {
-      stage('e2e-tests') {
-         steps {
-            sh 'npm ci'
-            sh 'npx playwright test'
-         }
-      }
-   }
+    agent any
+
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm ci'
+            }
+        }
+        stage('Run Playwright Tests') {
+            steps {
+                sh 'npx playwright test'
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'test-results/**/*.*', allowEmptyArchive: true
+            junit 'test-results/**/*.xml'
+        }
+    }
 }
