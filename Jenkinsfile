@@ -7,13 +7,15 @@ pipeline {
   stages {
     stage('install playwright') {
       steps {
-                         // Adjust npm cache location
+        script {
+                    // Adjust npm cache location
                     sh 'npm config set cache $(pwd)/.npm-cache --global'
 
                     // Install dependencies
                     sh 'npm i -D @playwright/test'
                     sh 'npx playwright install'
                 }
+      }
     }
     stage('help') {
       steps {
