@@ -8,7 +8,7 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
-          chown -R 122:124 "/.npm"
+          npm config set cache $(pwd)/.npm-cache --global
           npm i -D @playwright/test
           npx playwright install
         '''
