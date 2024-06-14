@@ -17,13 +17,15 @@ pipeline {
     post {
         always {
             publishHTML(target: [
-                allowMissing: false,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
                 reportDir: 'playwright-report',
                 reportFiles: 'index.html',
-                reportName: 'Playwright Test Report'
+                reportName: 'Playwright Test Report',
+                keepAll: true,
+                allowMissing: false,
+                alwaysLinkToLastBuild: true
             ])
+            junit 'playwright-report/results.xml'
         }
     }
+}
 }
