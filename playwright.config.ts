@@ -26,12 +26,7 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   
   reporter: [
-    ['list'],
-    ['@estruyf/github-actions-reporter', {
-      title: 'My custom title',
-      useDetails: true,
-      showError: true
-    }]
+    ['html', { outputFolder: 'playwright-report', open: 'never' }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
