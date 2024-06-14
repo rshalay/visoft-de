@@ -25,6 +25,9 @@ pipeline {
                 alwaysLinkToLastBuild: true
             ])
             junit 'playwright-report/results.xml'
+            office365ConnectorSend message: "Build ${currentBuild.fullDisplayName} finished with status ${currentBuild.currentResult}",
+                status: currentBuild.currentResult,
+                webhookUrl: 'https://visoftgmbh.webhook.office.com/webhookb2/0ff09896-ed44-4b0f-b76e-fec08c951a9d@3cd15a46-0164-4a52-89b9-7948a007c4d3/JenkinsCI/d544d9eebe784b629370dc2ce34414d8/56a52362-29df-4942-b602-3432ae370d8d'
         }
     }
 }
