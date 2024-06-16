@@ -15,13 +15,13 @@ pipeline {
             }
         }
 
-        stage {
-            stage('Install Dependencies') {
+        stage('Install Dependencies') {
                 steps {
                     sh 'npm ci'
                     sh 'npx playwright install'
                 }
             }
+
         stage('Run Playwright Tests') {
                 steps {
                     sh 'npx playwright test --reporter=list'
