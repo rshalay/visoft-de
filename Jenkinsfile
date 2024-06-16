@@ -9,12 +9,6 @@ pipeline {
     }
 
     stages {
-        stage('Clean Workspace') {
-            steps {
-                cleanWs()  // Clean the workspace before starting
-            }
-        }
-
         stage('Install Dependencies') {
                 steps {
                     sh 'npm ci'
@@ -47,6 +41,7 @@ pipeline {
             """,
             status: currentBuild.currentResult,
             webhookUrl: "${env.TEAMS_WEBHOOK_URL}"
+            cleanWs()
         }
     }
 }
