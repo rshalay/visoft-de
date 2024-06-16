@@ -9,6 +9,13 @@ pipeline {
     }
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()  // Clean the workspace before starting
+            }
+        }
+
+    stages {
         stage('Install Dependencies') {
             steps {
                 sh 'npm ci'
