@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Run Playwright Tests') {
                 steps {
-                    sh 'npx playwright test --workers=5  --reporter=list'
+                    sh 'npx playwright test --reporter=list'
                 }
             }
     }
