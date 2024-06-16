@@ -22,7 +22,7 @@ pipeline {
         }
     }
 
-   post {
+ post {
         always {
             publishHTML(target: [
                 reportDir: 'playwright-report',
