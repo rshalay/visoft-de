@@ -12,7 +12,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'npm ci'
-                sh 'npx playwright install'
+                sh 'npx playwright test --reporter=list'
             }
         }
      stage('Run Playwright Tests') {
