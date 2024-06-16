@@ -39,7 +39,6 @@ pipeline {
             """,
             status: currentBuild.currentResult,
             webhookUrl: "${env.TEAMS_WEBHOOK_URL}"
-            cleanWs()  // Clean the workspace after the build
         }
     }
 }
