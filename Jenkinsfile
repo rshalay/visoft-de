@@ -22,7 +22,7 @@ pipeline {
         }
     }
 
-    post {
+   post {
         always {
             publishHTML(target: [
                 reportDir: 'playwright-report',
@@ -35,11 +35,11 @@ pipeline {
             junit 'playwright-report/results.xml'
             office365ConnectorSend message: """
                 Build ${currentBuild.fullDisplayName} finished with status ${currentBuild.currentResult}.
-                \n Report:
                 [View Playwright Test Report](${env.JENKINS_URL}job/${env.JOB_NAME}/${env.BUILD_NUMBER}/playwright-report/)
             """,
             status: currentBuild.currentResult,
             webhookUrl: "${env.TEAMS_WEBHOOK_URL}"
+            cleanWs()  // Clean the workspace after the build
         }
     }
 }
