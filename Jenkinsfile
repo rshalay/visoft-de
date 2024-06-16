@@ -14,6 +14,7 @@ pipeline {
                 cleanWs()  // Clean the workspace before starting
             }
         }
+    }
 
     stages {
         stage('Install Dependencies') {
