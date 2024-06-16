@@ -9,15 +9,23 @@ pipeline {
     }
 
     stages {
-        stage('Install Dependencies') {
+        stage('Clean Workspace') {
             steps {
-                sh 'npm ci'
-                sh 'npx playwright install'
+                cleanWs()  // Clean the workspace before starting
             }
         }
-     stage('Run Playwright Tests') {
-            steps {
-                sh 'npx playwright test --reporter=list'
+
+        stages {
+            stage('Install Dependencies') {
+                steps {
+                    sh 'npm ci'
+                    sh 'npx playwright install'
+                }
+            }
+        stage('Run Playwright Tests') {
+                steps {
+                    sh 'npx playwright test --reporter=list'
+                }
             }
         }
     }
