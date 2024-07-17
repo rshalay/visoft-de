@@ -8,8 +8,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "1.44.1",
-    "@types/node": "^20.14.2"
+    "@playwright/test": "^1.45.2",
+    "@types/node": "^20.14.2",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0"
   },
   "dependencies": {
     "@estruyf/github-actions-reporter": "^1.7.0"
