@@ -1,12 +1,15 @@
 {
-  "name": "visoft-de",
+  "name": "staging.visoft.de",
   "version": "1.0.0",
-  "description": "",
+  "description": "e2e tests for staging.visoft.de",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test"
+  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Roman Shalay <rshalay@gmail.com>"
+  },
   "devDependencies": {
     "@playwright/test": "^1.45.2",
     "@types/node": "^20.14.2",

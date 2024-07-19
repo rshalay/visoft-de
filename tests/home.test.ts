@@ -1,7 +1,18 @@
-import { baseFixture } from '../fixtures';
+import { testBaseFixture } from '../fixtures/';
 
-baseFixture('Home page is loaded', async ({ app, page}) => {
-  // await page.goto('https://playwright.dev/');
-  await app.home.open();
-  await app.home.isLoaded()
-});
+  testBaseFixture('Home page is loaded', 
+    {    
+      tag: ['@home'],
+      annotation: [
+          { type: 'Owner', description: 'Roman Shalay'},
+          { type: 'JiraID', description: 'https://jira.visoft.de:8443/browse/' 
+        }]
+      },  
+    async ({ app }) => {  
+      await app.home.open();
+      await app.home.isLoaded();
+      await app.home.header.openViSoftPremium();
+      await app.home.header.expectLoaded();
+      await app.home.clickOnLogo();
+      await app.home.isLoaded();
+  });

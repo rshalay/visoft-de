@@ -3,21 +3,16 @@ import { Component } from "../abstractClasses";
 import { step } from "../../misc/reporters/step";
 
 export class Header extends Component {
-    private shopLink = this.page.getByRole('link', { name: 'Shop' })
-    private cartLink = this.page.getByRole('button', { name: 'your cart' })
+    private ViSoftPremiumLink = this.page.getByRole('menuitem', { name: 'ViSoft Premium' })
 
     @step()
     async expectLoaded(message = 'Expected Header to be loaded'): Promise<void> {
-        await expect(this.shopLink, message).toBeVisible();
+        await expect(this.ViSoftPremiumLink, message).toBeVisible();
     }
 
-    @step()
-    async openCart() {
-        await this.cartLink.click();
-    }
 
     @step()
-    async openShop() {
-        await this.shopLink.click()
+    async openViSoftPremium() {
+        await this.ViSoftPremiumLink.click()
     }
 }
