@@ -16,3 +16,17 @@ import { testBaseFixture } from '../fixtures/';
       await app.home.clickOnLogo();
       await app.home.isLoaded();
   });
+
+  testBaseFixture('Check carousel buttons and chevron', 
+    {    
+      tag: ['@home'],
+      annotation: [
+          { type: 'Owner', description: 'Roman Shalay'},
+          { type: 'JiraID', description: 'https://jira.visoft.de:8443/browse/' 
+        }]
+      },  
+    async ({ app }) => {  
+      await app.home.open();
+      await app.home.expectThatButtonInCarouselIsClickedAndPageOpened();
+      await app.home.expectThatChevronIsClickedAndPageOpened();
+  });
