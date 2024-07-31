@@ -19,5 +19,23 @@ export class ViSoftPremium extends AppPage{
         await this.page.getByRole('link', { name: 'Best features' }).click();
     }
 
+    @step()
+    async expectThatBestFeaturesTitleIsVisible() {
+        await this.page.waitForTimeout(1000);
+        return expect(this.page.getByRole('heading', { name: 'ViSoft Premium 2024' }).first()).toBeDisabled();
+    }
+
+    @step()
+    async openSystemRequirements() {
+        await this.ViSoftPremiumInHeaderMenu.hover();
+        await this.page.getByRole('link', { name: 'System Requirements' }).click();
+    }
+
+    @step()
+    async expectThatSystemRequirementsIsVisible() {
+        await this.page.waitForTimeout(1000);
+        return expect(this.page.getByRole('heading', { name: 'System Requirements​ for' }).first()).toBeInViewport();
+    }
+
 
 }
