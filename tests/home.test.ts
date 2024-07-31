@@ -8,13 +8,13 @@ import { testBaseFixture } from '../fixtures/';
           { type: 'JiraID', description: 'https://jira.visoft.de:8443/browse/' 
         }]
       },  
-    async ({ app }) => {  
-      await app.home.open();
-      await app.home.isLoaded();
-      await app.home.header.openViSoftPremium();
-      await app.home.header.expectLoaded();
-      await app.home.clickOnLogo();
-      await app.home.isLoaded();
+    async ({ web }) => {  
+      await web.home.open();
+      await web.home.isLoaded();
+      await web.home.openViSoftPremium();
+      await web.home.expectLoaded();
+      await web.home.clickOnLogo();
+      await web.home.isLoaded();
   });
 
   testBaseFixture('Check carousel buttons and chevron', 
@@ -25,8 +25,8 @@ import { testBaseFixture } from '../fixtures/';
           { type: 'JiraID', description: 'https://jira.visoft.de:8443/browse/' 
         }]
       },  
-    async ({ app }) => {  
-      await app.home.open();
-      await app.home.expectThatButtonInCarouselIsClickedAndPageOpened();
-      await app.home.expectThatChevronIsClickedAndPageOpened();
+    async ({ web }) => {  
+      await web.home.open();
+      await web.home.expectThatButtonInCarouselIsClickedAndPageOpened();
+      await web.home.expectThatChevronIsClickedAndPageOpened();
   });

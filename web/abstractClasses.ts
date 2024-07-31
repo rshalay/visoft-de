@@ -33,4 +33,5 @@ export abstract class AppPage extends Component {
         await this.page.goto(path ?? this.pagePath);
         await this.expectLoaded();
     }
+
 }

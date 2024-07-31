@@ -1,9 +1,9 @@
 import { test } from "@playwright/test";
-import { Application } from "../app/";
+import { WebApplication } from "../web";
 
-export const testBaseFixture = test.extend<{ app: Application }>({
-  app: async ({ page }, use) => {
-    const app = new Application(page);
+export const testBaseFixture = test.extend<{ web: WebApplication }>({
+  web: async ({ page }, use) => {
+    const app = new WebApplication(page);
     await use(app);
   },
 });
