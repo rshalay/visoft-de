@@ -8,8 +8,9 @@ export class ViSoftPremium extends AppPage{
     private ViSoftPremiumInHeaderMenu = this.page.getByRole('menuitem', { name: 'ViSoft Premium' })
 
     @step()
-    async expectLoaded(message = 'Expected Header to be loaded'): Promise<void> {
-        await expect(this.ViSoftPremiumInHeaderMenu, message).toBeVisible();
+    async expectLoaded(message = 'Expected Header to be loaded'){
+        await expect(this.page.getByRole('heading', { name: 'ViSoft Premium 2024' }).first()).toBeInViewport();
+        await expect(this.page.getByRole('heading', { name: 'ViSoft Premium 2024' }).first()).toHaveText('ViSoft Premium 2024');
     }
 
     //============================================Best Features=============================================================
