@@ -1,4 +1,4 @@
-import { test, expect  } from "@playwright/test";
+import { test } from "@playwright/test";
 import { WebApplication } from "../web";
 
 export const testBaseFixture = test.extend<{ web: WebApplication }>({

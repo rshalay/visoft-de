@@ -1,7 +1,6 @@
 import { expect } from "@playwright/test";
 import { AppPage, Component } from "../abstractClasses";
 import { step } from "../../misc/reporters/step";
-import { group } from "console";
 
 export class ViSoftPremium extends AppPage{
     public pagePath = '/visoft-premium';
@@ -24,7 +23,7 @@ export class ViSoftPremium extends AppPage{
     @step()
     async expectThatBestFeaturesTitleIsInViewport() {
         await this.page.waitForTimeout(1000);
-        return expect(this.page.getByRole('heading', { name: 'ViSoft Premium 2024' }).first()).toBeDisabled();
+        return expect(this.page.getByRole('heading', { name: 'ViSoft Premium 2024' }).first()).toBeInViewport();
     }
 
     //============================================System Requirements=============================================================

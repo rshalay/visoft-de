@@ -1,22 +1,25 @@
 import { expect } from "@playwright/test";
 import { AppPage } from "../abstractClasses";
 import { step } from "../../misc/reporters/step";
-import { group } from "console";
 
-export class Home extends AppPage {
+
+export class Home extends AppPage{
     public pagePath = '/';
     
-    private carousel = this.page.getByRole('heading', { name: 'ViSoft Ultimate' }).first();
-    private ViSoftPremiumLink = this.page.getByRole('menuitem', { name: 'ViSoft Premium' })
-    private logo = this.page.locator('.elementor-widget-container > a').first();
+    
+    private logo = this.page.locator('.elementor-widget-container a').first();
     private buttonInCarousel = this.page.locator('div .swiper-slide-active').first();
-    private swiperPaginationBullet = this.page.locator('.swiper-pagination-bullet').first();
     private numberOfSwiperPaginationBullet = this.page.locator('.swiper-pagination-bullet');
-
+    
+    @step()
+    async expectLoaded(message = 'ViSoft Premium 2024') {
+        await expect(this.page.locator('.elementor-slide-heading').first(), message).toBeVisible();
+    }
 
     @step()
-    async expectLoaded(message = 'Expected Home page to be opened') {
-        await expect(this.carousel).toBeVisible();
+    async expectThatViSoftPremiumPageOpened() {
+        await expect(this.page.getByRole('heading', { name: 'ViSoft Premium 2024' }).first()).toBeInViewport();
+        await expect(this.page.getByRole('heading', { name: 'ViSoft Premium 2024' }).first()).toHaveText('ViSoft Premium 2024');
     }
 
     @step()
@@ -26,7 +29,7 @@ export class Home extends AppPage {
 
     @step()
     async openViSoftPremium() {
-        await this.ViSoftPremiumLink.click()
+        await this.page.getByRole('menuitem', { name: 'ViSoft Premium' }).click()
     }
 
 
@@ -51,9 +54,8 @@ export class Home extends AppPage {
     @step()
     async expectThatButtonInCarouselIsClickedAndPageOpened() {
         var chapter = ['ViSoft Premium 2024', 'ViSoft Ultimate', 'ViSoft Photo Tuning add-on module', 'ViPlan', 'We are at your disposal'];
-        for (let i = 1; i < 5; i++) {
+        for (let i = 1; i <= 5; i++) {
             await this.clickOnButtonInCarousel(i);
-            await this.expectLoaded();
             await expect(this.page.getByRole('heading', { name: chapter[i-1] }).first()).toBeVisible();
             await expect(this.page.getByRole('heading', { name: chapter[i-1] }).first()).toHaveText(chapter[i-1]);
             await this.logo.click();
@@ -64,9 +66,8 @@ export class Home extends AppPage {
     @step()
     async expectThatChevronIsClickedAndPageOpened() {
             await this.clickOnChevronInCarousel();
-            await this.expectLoaded();
             await this.clickOnButtonInCarousel(2);
-            await expect(this.page.getByRole('heading', { name: 'ViSoft Ultimate' }).first()).toBeVisible();
+            await expect(this.page.getByRole('heading', { name: 'ViSoft Ultimate' }).first()).toBeInViewport();
             await expect(this.page.getByRole('heading', { name: 'ViSoft Ultimate' }).first()).toHaveText('ViSoft Ultimate');
     }
 }
