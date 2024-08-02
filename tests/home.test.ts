@@ -1,9 +1,8 @@
-import test from '@playwright/test';
+import { test } from "@playwright/test";
 import { testBaseFixture } from '../fixtures/';
 
-test.describe('Tests for Home page', () => {
-
-  testBaseFixture('Home page is loaded', 
+  testBaseFixture(
+    'Home page is loaded', 
     {    
       tag: ['@home'],
       annotation: [
@@ -33,4 +32,3 @@ test.describe('Tests for Home page', () => {
       await web.home.expectThatButtonInCarouselIsClickedAndPageOpened();
       await web.home.expectThatChevronIsClickedAndPageOpened();
   });
-});

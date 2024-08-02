@@ -1,7 +1,5 @@
-import test from '@playwright/test';
+import { test, } from "@playwright/test";
 import { testBaseFixture } from "../fixtures";
-
-test.describe('Tests for ViSoft Premium item in header menu', () => {
 
   testBaseFixture(
     "Check Base Features part is in Viewport",
@@ -116,4 +114,3 @@ test.describe('Tests for ViSoft Premium item in header menu', () => {
       await web.visoftPremium.expectThatFreeDemoVersionTextIsInViewport();
     }
   );
-});
