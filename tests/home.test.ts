@@ -1,4 +1,7 @@
+import test from '@playwright/test';
 import { testBaseFixture } from '../fixtures/';
+
+test.describe('Tests for Home page', () => {
 
   testBaseFixture('Home page is loaded', 
     {    
@@ -30,3 +33,4 @@ import { testBaseFixture } from '../fixtures/';
       await web.home.expectThatButtonInCarouselIsClickedAndPageOpened();
       await web.home.expectThatChevronIsClickedAndPageOpened();
   });
+});

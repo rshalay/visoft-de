@@ -1,30 +1,119 @@
-import { expect } from "@playwright/test";
+import test from '@playwright/test';
 import { testBaseFixture } from "../fixtures";
 
-testBaseFixture('Check Base Features page is loaded',
-    {tag: ['@home'],
-    annotation: [
-        { type: 'Owner', description: 'Roman Shalay'},
-        { type: 'JiraID', description: 'https://jira.visoft.de:8443/browse/' 
-      }]
+test.describe('Tests for ViSoft Premium item in header menu', () => {
+
+  testBaseFixture(
+    "Check Base Features part is in Viewport",
+    {
+      tag: ["@home"],
+      annotation: [
+        { type: "Owner", description: "Roman Shalay" },
+        { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
+      ],
     },
     async ({ web }) => {
       await web.visoftPremium.open();
       await web.visoftPremium.openBestFeatures();
-      await web.visoftPremium.expectThatBestFeaturesTitleIsVisible();
-    });
+      await web.visoftPremium.expectThatBestFeaturesTitleIsInViewport();
+    }
+  );
 
-    testBaseFixture('Check System Requirements page is loaded',
-      {tag: ['@home'],
+  testBaseFixture(
+    "Check System Requirements part is in Viewport",
+    {
+      tag: ["@home"],
       annotation: [
-          { type: 'Owner', description: 'Roman Shalay'},
-          { type: 'JiraID', description: 'https://jira.visoft.de:8443/browse/' 
-        }]
-      },
-      async ({ web }) => {
-        await web.visoftPremium.open();
-        await web.visoftPremium.openSystemRequirements();
-        await web.visoftPremium.expectThatSystemRequirementsIsVisible();
-      });
+        { type: "Owner", description: "Roman Shalay" },
+        { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
+      ],
+    },
+    async ({ web }) => {
+      await web.visoftPremium.open();
+      await web.visoftPremium.openSystemRequirements();
+      await web.visoftPremium.expectThatSystemRequirementsIsInViewport();
+    }
+  );
 
-      
+  testBaseFixture(
+    "Check Customer References part is in Viewport",
+    {
+      tag: ["@home"],
+      annotation: [
+        { type: "Owner", description: "Roman Shalay" },
+        { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
+      ],
+    },
+    async ({ web }) => {
+      await web.visoftPremium.open();
+      await web.visoftPremium.openCustomerReferences();
+      await web.visoftPremium.expectThatCustomerReferencesIsInViewport();
+    }
+  );
+
+  testBaseFixture(
+    "Check ViSoft Ultimate page is in Viewport",
+    {
+      tag: ["@home"],
+      annotation: [
+        { type: "Owner", description: "Roman Shalay" },
+        { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
+      ],
+    },
+    async ({ web }) => {
+      await web.visoftPremium.open();
+      await web.visoftPremium.openViSoftUltimate();
+      await web.visoftPremium.expectThatViSoftUltimateIsInViewport();
+    }
+  );
+
+  testBaseFixture(
+    "Check ViSoft Live page is in Viewport",
+    {
+      tag: ["@home"],
+      annotation: [
+        { type: "Owner", description: "Roman Shalay" },
+        { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
+      ],
+    },
+    async ({ web }) => {
+      await web.visoftPremium.open();
+      await web.visoftPremium.openViSoftLive();
+      await web.visoftPremium.expectThatViSoftLiveIsInViewport();
+    }
+  );
+
+  testBaseFixture(
+    "Check ViSoft Photo Tuning page is in Viewport",
+    {
+      tag: ["@home"],
+      annotation: [
+        { type: "Owner", description: "Roman Shalay" },
+        { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
+      ],
+    },
+    async ({ web }) => {
+      await web.visoftPremium.open();
+      await web.visoftPremium.openViSoftPhotoTuning();
+      await web.visoftPremium.expectThatViSoftPhotoTuningIsInViewport();
+    }
+  );
+
+  testBaseFixture(
+    "Check Free demo version text is in Viewport and clickable button",
+    {
+      tag: ["@home"],
+      annotation: [
+        { type: "Owner", description: "Roman Shalay" },
+        { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
+      ],
+    },
+    async ({ web }) => {
+      await web.visoftPremium.open();
+      await web.visoftPremium.openViSoftPremiumSubmenu();
+      await web.visoftPremium.checkTextForFreeDemoVersion();
+      await web.visoftPremium.clickOnGetDemo();
+      await web.visoftPremium.expectThatFreeDemoVersionTextIsInViewport();
+    }
+  );
+});

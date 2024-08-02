@@ -13,6 +13,8 @@ export class ViSoftPremium extends AppPage{
         await expect(this.ViSoftPremiumInHeaderMenu, message).toBeVisible();
     }
 
+    //============================================Best Features=============================================================
+
     @step()
     async openBestFeatures() {
         await this.ViSoftPremiumInHeaderMenu.hover();
@@ -20,10 +22,12 @@ export class ViSoftPremium extends AppPage{
     }
 
     @step()
-    async expectThatBestFeaturesTitleIsVisible() {
+    async expectThatBestFeaturesTitleIsInViewport() {
         await this.page.waitForTimeout(1000);
         return expect(this.page.getByRole('heading', { name: 'ViSoft Premium 2024' }).first()).toBeDisabled();
     }
+
+    //============================================System Requirements=============================================================
 
     @step()
     async openSystemRequirements() {
@@ -32,10 +36,85 @@ export class ViSoftPremium extends AppPage{
     }
 
     @step()
-    async expectThatSystemRequirementsIsVisible() {
+    async expectThatSystemRequirementsIsInViewport() {
         await this.page.waitForTimeout(1000);
         return expect(this.page.getByRole('heading', { name: 'System Requirements​ for' }).first()).toBeInViewport();
     }
 
+    //============================================Customer References=============================================================
+
+    @step()
+    async openCustomerReferences() {
+        await this.ViSoftPremiumInHeaderMenu.hover();
+        await this.page.getByRole('link', { name: 'Customer references' }).click();
+    }
+
+    @step()
+    async expectThatCustomerReferencesIsInViewport() {
+        await this.page.waitForTimeout(1000);
+        return expect(this.page.getByRole('heading', { name: 'Customers worldwide' }).first()).toBeInViewport();
+    }
+
+    //============================================ViSoft Ultimate=============================================================
+
+    @step()
+    async openViSoftUltimate() {
+        await this.ViSoftPremiumInHeaderMenu.hover();
+        await this.page.getByRole('link', { name: 'ViSoft Ultimate' }).click();
+    }
+
+    @step()
+    async expectThatViSoftUltimateIsInViewport() {
+        return expect(this.page.getByRole('heading', { name: 'ViSoft Ultimate' }).first()).toBeInViewport();
+    }
+
+    //============================================ViSoft Live=============================================================
+
+    @step()
+    async openViSoftLive() {
+        await this.ViSoftPremiumInHeaderMenu.hover();
+        await this.page.getByRole('link', { name: 'ViSoft Live' }).click();
+    }
+
+    @step()
+    async expectThatViSoftLiveIsInViewport() {
+        return expect(this.page.getByRole('heading', { name: 'ViSoft Live' }).first()).toBeInViewport();
+    }
+
+    //============================================ViSoft Photo Tuning=============================================================
+
+    @step()
+    async openViSoftPhotoTuning() {
+        await this.ViSoftPremiumInHeaderMenu.hover();
+        await this.page.getByRole('link', { name: 'ViSoft Photo Tuning' }).click();
+    }
+
+    @step()
+    async expectThatViSoftPhotoTuningIsInViewport() {
+        return expect(this.page.getByRole('heading', { name: 'ViSoft Photo Tuning add-on module' }).first()).toBeInViewport();
+    }
+
+    //============================================Get Demo=============================================================
+
+    @step()
+    async openViSoftPremiumSubmenu() {
+        await this.ViSoftPremiumInHeaderMenu.hover();
+    }
+
+    @step()
+    async checkTextForFreeDemoVersion() {
+        await expect(this.page.getByRole('menu', { name: 'Expand: ViSoft Premium' }).getByRole('paragraph')).toHaveText('Looking for a software for design and visualization? Try now ViSoft Premium 2024 free of charge and without obligation.');
+    }
+
+    @step()
+    async clickOnGetDemo() {
+        await this.page.getByRole('menu').getByRole('link', { name: 'Get demo' }).click();
+    }
+
+    @step()
+    async expectThatFreeDemoVersionTextIsInViewport() {
+        return expect(this.page.getByText('It looks like nothing was')).toBeInViewport();
+        
+    }
 
 }
