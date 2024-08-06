@@ -4,11 +4,11 @@ import { testBaseFixture } from '../fixtures/';
   testBaseFixture(
     'Home page is loaded', 
     {    
-      tag: ['@home'],
+      tag: ['@home', "@Desktop"],
       annotation: [
           { type: 'Owner', description: 'Roman Shalay'},
-          { type: 'JiraID', description: 'https://jira.visoft.de:8443/browse/' 
-        }]
+          { type: 'JiraID', description: 'https://jira.visoft.de:8443/browse/'}
+        ]
       },  
     async ({ web }) => {  
       await web.home.open();
@@ -21,7 +21,7 @@ import { testBaseFixture } from '../fixtures/';
   testBaseFixture(
     'Check carousel buttons and chevron', 
     {    
-      tag: ['@home'],
+      tag: ['@home', "@Desktop"],
       annotation: [
           { type: 'Owner', description: 'Roman Shalay'},
           { type: 'JiraID', description: 'https://jira.visoft.de:8443/browse/' 

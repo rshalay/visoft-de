@@ -3,7 +3,7 @@ import { testBaseFixture } from "../fixtures";
   testBaseFixture(
     "Check Base Features part is in Viewport",
     {
-      tag: ["@home"],
+      tag: ["@ViSoftPremium", "@Desktop"],
       annotation: [
         { type: "Owner", description: "Roman Shalay" },
         { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
@@ -19,7 +19,7 @@ import { testBaseFixture } from "../fixtures";
   testBaseFixture(
     "Check System Requirements part is in Viewport",
     {
-      tag: ["@home"],
+      tag: ["@ViSoftPremium", "@Desktop"],
       annotation: [
         { type: "Owner", description: "Roman Shalay" },
         { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
@@ -35,7 +35,7 @@ import { testBaseFixture } from "../fixtures";
   testBaseFixture(
     "Check Customer References part is in Viewport",
     {
-      tag: ["@home"],
+      tag: ["@ViSoftPremium", "@Desktop"],
       annotation: [
         { type: "Owner", description: "Roman Shalay" },
         { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
@@ -51,7 +51,7 @@ import { testBaseFixture } from "../fixtures";
   testBaseFixture(
     "Check ViSoft Ultimate page is in Viewport",
     {
-      tag: ["@home"],
+      tag: ["@ViSoftPremium", "@Desktop"],
       annotation: [
         { type: "Owner", description: "Roman Shalay" },
         { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
@@ -67,7 +67,7 @@ import { testBaseFixture } from "../fixtures";
   testBaseFixture(
     "Check ViSoft Live page is in Viewport",
     {
-      tag: ["@home"],
+      tag: ["@ViSoftPremium", "@Desktop"],
       annotation: [
         { type: "Owner", description: "Roman Shalay" },
         { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
@@ -83,7 +83,7 @@ import { testBaseFixture } from "../fixtures";
   testBaseFixture(
     "Check ViSoft Photo Tuning page is in Viewport",
     {
-      tag: ["@home"],
+      tag: ["@ViSoftPremium", "@Desktop"],
       annotation: [
         { type: "Owner", description: "Roman Shalay" },
         { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
@@ -99,7 +99,7 @@ import { testBaseFixture } from "../fixtures";
   testBaseFixture(
     "Check Free demo version text is in Viewport and clickable button",
     {
-      tag: ["@home"],
+      tag: ["@ViSoftPremium", "@Desktop"],
       annotation: [
         { type: "Owner", description: "Roman Shalay" },
         { type: "JiraID", description: "https://jira.visoft.de:8443/browse/" },
