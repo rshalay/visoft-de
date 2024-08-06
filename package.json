@@ -8,10 +8,10 @@
   },
   "keywords": [],
   "author": {
-    "name": "Roman Shalay <rshalay@gmail.com>"
+    "name": "Roman Shalay <r.shalay@gmail.com>"
   },
   "devDependencies": {
-    "@playwright/test": "^1.45.2",
+    "@playwright/test": "^1.46.0",
     "@types/node": "^20.14.2",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
