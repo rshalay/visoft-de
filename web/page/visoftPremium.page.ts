@@ -113,7 +113,7 @@ export class ViSoftPremium extends AppPage{
 
     @step()
     async expectThatFreeDemoVersionTextIsInViewport() {
-        return expect(this.page.getByText('It looks like nothing was')).toBeInViewport();
+        return expect(this.page.getByRole('heading', { name: 'Test ViSoft Premium 2024' })).toBeVisible();
         
     }
 
