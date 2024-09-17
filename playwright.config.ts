@@ -44,7 +44,7 @@ export default defineConfig({
     {
       name: 'chrome',
       use: { ...devices['Desktop Chrome'] },
-      grep: [new RegExp ('@Desktop')],
+      //grep: [new RegExp ('@Desktop')],
     },
 
     // {
