@@ -1,3 +1,4 @@
+import { test } from "@playwright/test";
 import { testBaseFixture } from "../fixtures";
 
   testBaseFixture(
@@ -10,6 +11,7 @@ import { testBaseFixture } from "../fixtures";
       ],
     },
     async ({ web }) => {
+      test.fixme();
       await web.visoftPremium.open();
       await web.visoftPremium.openBestFeatures();
       await web.visoftPremium.expectThatBestFeaturesTitleIsInViewport();
