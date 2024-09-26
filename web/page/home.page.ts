@@ -53,7 +53,7 @@ export class Home extends AppPage{
     
     @step()
     async expectThatButtonInCarouselIsClickedAndPageOpened() {
-        var chapter = ['ViSoft Premium 2024', 'ViSoft Ultimate', 'ViSoft Photo Tuning add-on module', 'ViPlan', 'We are at your disposal'];
+        var chapter = ['ViSoft Premium 2024', 'ViSoft Ultimate', 'ViSoft Photo Tuning add-on module', 'ViPlan', 'ViSoft ViSion'];
         for (let i = 1; i <= 5; i++) {
             await this.clickOnButtonInCarousel(i);
             await expect(this.page.getByRole('heading', { name: chapter[i-1] }).first()).toBeVisible();
