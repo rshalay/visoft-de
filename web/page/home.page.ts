@@ -214,16 +214,9 @@ export class Home extends AppPage{
         await expect(this.page.getByRole('link', { name: 'The final presentation' })).toBeVisible();
         await expect(this.page.getByText('Emotional sales presentation')).toBeVisible();
         await expect(this.page.getByText('07', { exact: true })).toBeVisible();
-        await this.page.locator('div:nth-child(4) > div > div > .elementor-widget-container > .elementor-icon-wrapper > .elementor-icon > .far').scrollIntoViewIfNeeded();
-        await this.page.locator('div:nth-child(4) > div > div > .elementor-widget-container > .elementor-icon-wrapper > .elementor-icon > .far').screenshot({ path: 'web/page/screenshot/home/10.png' });
-
-        await expect(this.page.locator('div:nth-child(4) > div > div > .elementor-widget-container > .elementor-icon-wrapper > .elementor-icon > .far')).toHaveScreenshot('web/page/screenshot/home/10.png');
-        // await this.page.waitForTimeout(1000);
-        // // await this.page.locator('div:nth-child(6) > .eael-content-timeline-img').screenshot({ animations: 'disabled', path: 'web/page/screenshot/home/06.png' })
-        // await this.page.locator('div:nth-child(7) > .eael-content-timeline-img').screenshot({ animation: true, path: 'web/page/screenshot/home/07.png' });
-        // await this.page.waitForTimeout(5000);
-        // await expect(this.page.locator('div:nth-child(7) > .eael-content-timeline-img')).toHaveScreenshot('07.png');
-
+        await this.page.locator('div:nth-child(7) > .eael-content-timeline-img').scrollIntoViewIfNeeded();
+        await this.page.waitForTimeout(2000);
+        await expect(this.page.locator('div:nth-child(7) > .eael-content-timeline-img')).toHaveScreenshot('07.png');
     }
 
     @step()
