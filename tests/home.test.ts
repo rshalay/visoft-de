@@ -154,7 +154,7 @@ import { testBaseFixture } from '../fixtures/';
       await web.home.expectThatViSoftSmartPageOpened();
   });
 
-  // Should be fixed section because the discription and button are mistaking in the section
+  //Should be fixed section because the discription and button are mistaking in the section
 
   // testBaseFixture(
   //   'Check text and clickability of the ViSoft Ultimate button in 04 section', 
@@ -218,4 +218,20 @@ import { testBaseFixture } from '../fixtures/';
       await web.home.expectThatTextIn07SectionIsCorrect();
       await web.home.clickOnViSoftLiveButton();
       await web.home.expectThatViSoftLivePageOpened();
+  });
+
+  testBaseFixture(
+    'Check "Our solutions for your success" block', 
+    {    
+      tag: ['@home', "@Desktop"],
+      annotation: [
+          { type: 'Owner', description: 'Roman Shalay'},
+          { type: 'JiraID', description: '' 
+        }]
+      },  
+    async ({ web, page }) => {  
+      await web.home.open();
+      await web.home.expectThatTextInOurSolutionsBlockIsCorrect();
+      await web.home.clickOnLearnMoreButtonInOurSolutionsBlock();
+      await web.home.expectThatLearnMoreInOurSolutionsBlockIsOpenedPage();
   });

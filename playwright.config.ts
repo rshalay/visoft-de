@@ -43,7 +43,12 @@ export default defineConfig({
   projects: [
     {
       name: 'chrome',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome'], 
+        browserName: 'chromium',
+        viewport: { width: 1920, height: 1080 },
+      },
+      
       //grep: [new RegExp ('@Desktop')],
     },
 

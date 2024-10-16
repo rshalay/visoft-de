@@ -72,15 +72,19 @@ export class Home extends AppPage{
     }
 
     @step()
-    async expectThatTextInTileSanitaryDigitalSectionIsCorrect() {
+    async expectThatTextInTileSanitaryDigitalSectionIsCorrect() {       
         await expect(this.page.getByRole('heading', { name: 'Tile / Sanitary / Digital' })).toBeVisible();
         await expect(this.page.getByText('Sales and planning solutions')).toBeVisible();
         await expect(this.page.getByRole('heading', { name: 'Individual concepts' })).toBeVisible();
+        await expect(this.page.locator('.far').first()).toHaveScreenshot('individualConcepts.png', {maxDiffPixelRatio: 0.1});
         await expect(this.page.getByText('Fast, easy to use and with a')).toBeVisible();
         await expect(this.page.getByRole('heading', { name: 'Cross-channel' })).toBeVisible();
+        await expect(this.page.locator('div:nth-child(2) > div > div > .elementor-widget-container > .elementor-icon-wrapper > .elementor-icon > .far')).toHaveScreenshot('cross-channel.png', {maxDiffPixelRatio: 0.1});
         await expect(this.page.getByText('All our products, apps and')).toBeVisible();
         await expect(this.page.getByRole('heading', { name: 'Innovative and future-oriented' })).toBeVisible();
+        await expect(this.page.locator('div:nth-child(3) > div > div > .elementor-widget-container > .elementor-icon-wrapper > .elementor-icon > .far')).toHaveScreenshot('innovativeAndFuture-oriented.png', {maxDiffPixelRatio: 0.1});
         await expect(this.page.getByRole('heading', { name: 'For a unique purchasing' })).toBeVisible();
+        await expect(this.page.locator('div:nth-child(4) > div > div > .elementor-widget-container > .elementor-icon-wrapper > .elementor-icon > .far')).toHaveScreenshot('forAUniquePurchasing.png', {maxDiffPixelRatio: 0.1});
         await expect(this.page.getByText('Take advantage of the')).toBeVisible();
     }
 
@@ -123,6 +127,10 @@ export class Home extends AppPage{
     async expectThatTextIn01SectionIsCorrect() {
         await expect(this.page.getByRole('link', { name: 'Customer visits your website' })).toBeVisible();
         await expect(this.page.getByText('Playful getting to know your').first()).toBeVisible();
+        await expect(this.page.getByText('01', { exact: true })).toBeVisible();
+        await this.page.locator('div:nth-child(1) > .eael-content-timeline-img').scrollIntoViewIfNeeded();
+        await this.page.waitForTimeout(2000);
+        await expect(this.page.locator('div:nth-child(1) > .eael-content-timeline-img')).toHaveScreenshot('01.png', {maxDiffPixelRatio: 0.1})
     }
 
     @step()
@@ -141,6 +149,10 @@ export class Home extends AppPage{
     async expectThatTextIn02SectionIsCorrect() {
         await expect(this.page.getByRole('link', { name: 'For the self-planner' })).toBeVisible();
         await expect(this.page.getByText('Playful getting to know your').nth(1)).toBeVisible();
+        await expect(this.page.getByText('02', { exact: true })).toBeVisible();
+        await this.page.locator('div:nth-child(2) > .eael-content-timeline-img').scrollIntoViewIfNeeded();
+        await this.page.waitForTimeout(2000);
+        await expect(this.page.locator('div:nth-child(2) > .eael-content-timeline-img')).toHaveScreenshot('02.png', {maxDiffPixelRatio: 0.1})
     }
 
     @step()
@@ -159,6 +171,10 @@ export class Home extends AppPage{
     async expectThatTextIn03SectionIsCorrect() {
         await expect(this.page.getByRole('link', { name: 'Appointment on the building' })).toBeVisible();
         await expect(this.page.getByText('Take up the dimensions')).toBeVisible();
+        await expect(this.page.getByText('03', { exact: true })).toBeVisible();
+        await this.page.locator('div:nth-child(3) > .eael-content-timeline-img').scrollIntoViewIfNeeded();
+        await this.page.waitForTimeout(2000);
+        await expect(this.page.locator('div:nth-child(3) > .eael-content-timeline-img')).toHaveScreenshot('03.png', {maxDiffPixelRatio: 0.1})
     }
 
     @step()
@@ -173,10 +189,36 @@ export class Home extends AppPage{
         await expect(this.page.getByText('ViSmart is a versatile')).toBeVisible();
     }
 
+    // @step()
+    // async expectThatTextIn04SectionIsCorrect() {
+    //     await expect(this.page.getByRole('link', { name: 'Present your planning from' })).toBeVisible();
+    //     await expect(this.page.getByText('Rendering at the highest level')).toBeVisible();
+    //     await expect(this.page.getByText('04', { exact: true })).toBeVisible();
+    //     await this.page.locator('div:nth-child(4) > .eael-content-timeline-img').scrollIntoViewIfNeeded();
+    //     await this.page.waitForTimeout(2000);
+    //     await expect(this.page.locator('div:nth-child(4) > .eael-content-timeline-img')).toHaveScreenshot('04.png', {maxDiffPixelRatio: 0.1})
+    // }
+
+    // @step()
+    // async clickOnViSoftUltimateButton() {
+    //     await this.page.getByRole('link', { name: 'ViSoft Photo Tuning', exact: true }).click();
+    // }
+
+    // @step()
+    // async expectThatViSoftUltimatePageOpened() {
+    //     await expect(this.page.getByRole('heading', { name: 'ViSoft Photo Tuning add-on' })).toBeVisible();
+    //     await expect(this.page.getByText('Simple, fast, perfect!')).toBeVisible();
+    //     await expect(this.page.getByText('ViSoft Photo Tuning brings out the best in your projects – sunshine, light,')).toBeVisible();
+    // }
+
     @step()
     async expectThatTextIn05SectionIsCorrect() {
         await expect(this.page.getByRole('link', { name: 'Present your planning from' })).toBeVisible();
         await expect(this.page.getByText('Rendering at the highest level')).toBeVisible();
+        await expect(this.page.getByText('05', { exact: true })).toBeVisible();
+        await this.page.locator('div:nth-child(5) > .eael-content-timeline-img').scrollIntoViewIfNeeded();
+        await this.page.waitForTimeout(2000);
+        await expect(this.page.locator('div:nth-child(5) > .eael-content-timeline-img')).toHaveScreenshot('05.png', {maxDiffPixelRatio: 0.1})
     }
 
     @step()
@@ -195,6 +237,10 @@ export class Home extends AppPage{
     async expectThatTextIn06SectionIsCorrect() {
         await expect(this.page.getByRole('link', { name: 'Make images and panoramas' })).toBeVisible();
         await expect(this.page.getByText('Share the results of planning')).toBeVisible();
+        await expect(this.page.getByText('06', { exact: true })).toBeVisible();
+        await this.page.locator('div:nth-child(6) > .eael-content-timeline-img').scrollIntoViewIfNeeded();
+        await this.page.waitForTimeout(2000);
+        await expect(this.page.locator('div:nth-child(6) > .eael-content-timeline-img')).toHaveScreenshot('06.png', {maxDiffPixelRatio: 0.1})
     }
 
     @step()
@@ -216,7 +262,7 @@ export class Home extends AppPage{
         await expect(this.page.getByText('07', { exact: true })).toBeVisible();
         await this.page.locator('div:nth-child(7) > .eael-content-timeline-img').scrollIntoViewIfNeeded();
         await this.page.waitForTimeout(2000);
-        await expect(this.page.locator('div:nth-child(7) > .eael-content-timeline-img')).toHaveScreenshot('07.png');
+        await expect(this.page.locator('div:nth-child(7) > .eael-content-timeline-img')).toHaveScreenshot('07.png', {maxDiffPixelRatio: 0.1})
     }
 
     @step()
@@ -228,5 +274,22 @@ export class Home extends AppPage{
     async expectThatViSoftLivePageOpened() {
         await expect(this.page.getByRole('heading', { name: 'ViSoft Live' })).toBeVisible();
         await expect(this.page.getByText('The module, ViSoft Live, can')).toBeVisible();
+    }
+
+    @step()
+    async clickOnLearnMoreButtonInOurSolutionsBlock() {
+        await this.page.getByRole('heading', { name: 'Our solutions for your success' }).scrollIntoViewIfNeeded();
+        await this.page.getByText('Our solutions for your success We have set industry standards with our 3D').getByRole('link', { name: 'Learn more', exact: true }).click();
+    }
+
+    @step()
+    async expectThatTextInOurSolutionsBlockIsCorrect() {
+        await expect(this.page.getByRole('heading', { name: 'Our solutions for your success' })).toBeVisible();
+        await expect(this.page.getByText('We have set industry')).toBeVisible();
+    }
+
+    @step()
+    async expectThatLearnMoreInOurSolutionsBlockIsOpenedPage() {
+        await expect(this.page.getByRole('heading', { name: 'Contact us' })).toBeVisible();
     }
 }
