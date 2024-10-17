@@ -292,4 +292,20 @@ export class Home extends AppPage{
     async expectThatLearnMoreInOurSolutionsBlockIsOpenedPage() {
         await expect(this.page.getByRole('heading', { name: 'Contact us' })).toBeVisible();
     }
+
+     @step()
+    async scrolleToWhatOurClientsSaySection() {
+        await this.page.getByRole('heading', { name: 'What our clients say' }).scrollIntoViewIfNeeded();
+        await expect(this.page.getByRole('heading', { name: 'What our clients say' })).toBeVisible();
+    }
+
+
+    @step()
+    async expectThatTextInWhatOurClientsSaySectionIsCorrect() {
+        for (let i = 0; i < 10; i++) {
+            await expect(this.page.locator('div').filter({ hasText: 'What our clients say Good' }).nth(1)).toHaveScreenshot('WhatOurClientsSaySection_'+ i +'.png', {maxDiffPixelRatio: 0.1});
+            await this.page.getByLabel('Next', { exact: true }).click();
+        }     
+    } 
+
 }

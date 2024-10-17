@@ -221,7 +221,7 @@ import { testBaseFixture } from '../fixtures/';
   });
 
   testBaseFixture(
-    'Check "Our solutions for your success" block', 
+    'Check "Our solutions for your success" section', 
     {    
       tag: ['@home', "@Desktop"],
       annotation: [
@@ -234,4 +234,19 @@ import { testBaseFixture } from '../fixtures/';
       await web.home.expectThatTextInOurSolutionsBlockIsCorrect();
       await web.home.clickOnLearnMoreButtonInOurSolutionsBlock();
       await web.home.expectThatLearnMoreInOurSolutionsBlockIsOpenedPage();
+  });
+
+  testBaseFixture(
+    'Check "What our clients say" section', 
+    {    
+      tag: ['@home', "@Desktop"],
+      annotation: [
+          { type: 'Owner', description: 'Roman Shalay'},
+          { type: 'JiraID', description: '' 
+        }]
+      },  
+    async ({ web, page }) => {  
+      await web.home.open();
+      await web.home.scrolleToWhatOurClientsSaySection();
+      await web.home.expectThatTextInWhatOurClientsSaySectionIsCorrect();
   });
