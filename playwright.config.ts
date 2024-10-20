@@ -47,6 +47,7 @@ export default defineConfig({
         ...devices['Desktop Chrome'], 
         browserName: 'chromium',
         viewport: { width: 1920, height: 1080 },
+        testIdAttribute: 'data-id'
       },
       
       //grep: [new RegExp ('@Desktop')],

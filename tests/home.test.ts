@@ -250,3 +250,52 @@ import { testBaseFixture } from '../fixtures/';
       await web.home.scrolleToWhatOurClientsSaySection();
       await web.home.expectThatTextInWhatOurClientsSaySectionIsCorrect();
   });
+
+  testBaseFixture(
+    'Check "Customers worldwide" section', 
+    {    
+      tag: ['@home', "@Desktop"],
+      annotation: [
+          { type: 'Owner', description: 'Roman Shalay'},
+          { type: 'JiraID', description: '' 
+        }]
+      },  
+    async ({ web, page }) => {  
+      await web.home.open();
+      await web.home.scrolleToCustomersWorldwide();
+      await web.home.expectThatTextInCustomersWorldwideIsCorrect();
+      await web.home.expectThatMapIsVisible();
+  });
+
+  testBaseFixture(
+    'Check "Customers in Germany" section', 
+    {    
+      tag: ['@home', "@Desktop"],
+      annotation: [
+          { type: 'Owner', description: 'Roman Shalay'},
+          { type: 'JiraID', description: '' 
+        }]
+      },  
+    async ({ web, page }) => {  
+      await web.home.open();
+      await web.home.scrolleToCustomersInGermany();
+      await web.home.expectThatTextInCustomersInGermanyIsCorrect();
+      await web.home.expectThatLogosIsVisible();
+  });
+
+  testBaseFixture(
+    'Check "Try ViSoft Premium for free" section', 
+    {    
+      tag: ['@home', "@Desktop"],
+      annotation: [
+          { type: 'Owner', description: 'Roman Shalay'},
+          { type: 'JiraID', description: '' 
+        }]
+      },  
+    async ({ web, page }) => {  
+      await web.home.open();
+      await web.home.scrolleToTryViSoftPremiumForFree();
+      await web.home.expectThatTextInTryViSoftPremiumForFreeIsCorrect();
+      await web.home.clickOnGetDemoButtonInTryViSoftPremiumForFreeSection();
+      await web.home.expectThatTestViSoftPremiumPageIsOpened();
+  });

@@ -299,7 +299,6 @@ export class Home extends AppPage{
         await expect(this.page.getByRole('heading', { name: 'What our clients say' })).toBeVisible();
     }
 
-
     @step()
     async expectThatTextInWhatOurClientsSaySectionIsCorrect() {
         for (let i = 0; i < 10; i++) {
@@ -307,5 +306,59 @@ export class Home extends AppPage{
             await this.page.getByLabel('Next', { exact: true }).click();
         }     
     } 
+
+    @step()
+    async scrolleToCustomersWorldwide() {
+        await this.page.getByText('ViSoft products are used in').scrollIntoViewIfNeeded();
+    }
+
+    @step()
+    async expectThatTextInCustomersWorldwideIsCorrect() {
+        await expect(this.page.getByRole('heading', { name: 'Customers worldwide' })).toBeVisible();
+        await expect(this.page.getByText('ViSoft products are used in')).toBeVisible();
+    }
+
+    @step()
+    async expectThatMapIsVisible() {
+       await expect(this.page.locator('div:nth-child(2) > .elementor-widget-container > .attachment-full')).toHaveScreenshot('map.png', {maxDiffPixelRatio: 0.1});
+    }
+
+    @step()
+    async scrolleToCustomersInGermany() {
+        await this.page.getByRole('heading', { name: 'Customers in Germany' }).scrollIntoViewIfNeeded();
+    }
+
+    @step()
+    async expectThatTextInCustomersInGermanyIsCorrect() {
+        await expect(this.page.getByRole('heading', { name: 'Customers in Germany' })).toBeVisible();
+        await expect(this.page.getByText('ViSoft Premium is the leading')).toBeVisible();
+    }
+
+    @step()
+    async expectThatLogosIsVisible() {
+       await expect(this.page.getByText('Customers in Germany ViSoft')).toHaveScreenshot('Logos.png', {maxDiffPixelRatio: 0.1});
+    }
+
+    @step()
+    async scrolleToTryViSoftPremiumForFree() {
+        await this.page.getByRole('heading', { name: 'Try ViSoft Premium for free' }).scrollIntoViewIfNeeded();
+    }
+
+    @step()
+    async expectThatTextInTryViSoftPremiumForFreeIsCorrect() {
+        await expect(this.page.getByRole('heading', { name: 'Try ViSoft Premium for free' })).toBeVisible();
+        await expect(this.page.getByText('Test ViSoft Premium 2024 for 30 days free of charge and with no obligation to the full functionality!')).toBeVisible();
+    }
+
+    @step()
+    async clickOnGetDemoButtonInTryViSoftPremiumForFreeSection() {
+        await this.page.getByTestId('8e48958').getByRole('link', { name: 'Get demo' }).click();
+      // await this.page.locator(`div 'data-id="8e48958"' a`).click();
+    }
+
+    @step()
+    async expectThatTestViSoftPremiumPageIsOpened() {
+       await expect(this.page.getByRole('heading', { name: 'Test ViSoft Premium 2024' })).toBeVisible();
+    }
 
 }
